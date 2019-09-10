@@ -11,10 +11,10 @@ def rsi_divergence(prices, period=3):
     rsi = ta.rsi(prices)
 
     def signal_fn(i):
-        if i >= period:
-            rsiSum = sum(rsi[i - period:i + 1].diff().cumsum().fillna(0))
-            priceSum = sum(prices[i - period:i + 1].diff().cumsum().fillna(0))
+        rsiSum = sum(rsi[i - period:i + 1].diff().cumsum().fillna(0))
+        priceSum = sum(prices[i - period:i + 1].diff().cumsum().fillna(0))
 
+        if i >= period:
             if rsiSum < 0 and priceSum >= 0:
                 return SIGNALS.BUY
             elif rsiSum > 0 and priceSum <= 0:
@@ -41,4 +41,4 @@ def sma_crossover(prices):
 def buy_and_hodl(prices=None):
     def signal_fn(i):
         return SIGNALS.BUY
-    return signal_fn
+    return signal_fnd
