@@ -24,7 +24,7 @@ class HoldStrategy:
         unit = self.balance
         self.unit[i] = unit
         if unit > self.balance:
-            warnings.warn('Unit valur bigger than balance', Warning)
+            warnings.warn('Unit value bigger than balance', Warning)
         return unit
 
     def entry(self, i):

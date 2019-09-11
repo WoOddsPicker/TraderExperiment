@@ -4,6 +4,7 @@ from datetime import datetime
 from trade_testing.backtesting import *
 from trade_testing.turtle_strategy import TurtleStrategy
 from trade_testing.hold_strategy import HoldStrategy
+from trade_testing.sma_strategy import SmaStrategy
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -24,6 +25,10 @@ turtle_strategy.plot_performance()
 hold_strategy = BackTest(df, 1000, HoldStrategy, 0)
 hold_strategy.run_backtest()
 hold_strategy.plot_performance()
+
+sma_strategy = BackTest(df, 1000, SmaStrategy, 0)
+sma_strategy.run_backtest()
+sma_strategy.plot_performance()
 
 
 
